@@ -12,6 +12,7 @@ import UIKit
 open class TableViewDataSource: NSObject {
     
     open var sections: [TableViewSection]
+    open weak var tableView: UITableView?
     
     public init(sections: [TableViewSection]) {
         self.sections = sections
@@ -19,7 +20,7 @@ open class TableViewDataSource: NSObject {
     }
     
     open func registerCells(with tableView: UITableView) {
-        // Default implemetation
+        self.tableView = tableView
     }
 }
 // MARK: - UITableViewDataSource
