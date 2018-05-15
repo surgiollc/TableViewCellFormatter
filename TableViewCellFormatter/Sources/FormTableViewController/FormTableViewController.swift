@@ -46,4 +46,18 @@ open class FormTableViewController: UIViewController, UITableViewDelegate {
         self.tableView.delegate = self
         self.tableDataSource.registerCells(with: self.tableView)
     }
+    
+    // MARK: UITableViewDelegate
+    
+    open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath.section < self.tableDataSource.sections.endIndex else { return }
+        let section: TableViewSection = self.tableDataSource.sections[indexPath.section]
+        section.willDisplay(cell: cell, at: indexPath)
+    }
+    
+    open func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard indexPath.section < self.tableDataSource.sections.endIndex else { return }
+        let section: TableViewSection = self.tableDataSource.sections[indexPath.section]
+        section.didEndDisplaying(cell: cell, at: indexPath)
+    }
 }
