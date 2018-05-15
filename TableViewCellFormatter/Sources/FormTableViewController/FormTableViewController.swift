@@ -20,12 +20,12 @@ open class FormTableViewController: UIViewController, UITableViewDelegate {
         return result
     }()
     
-    public let dataSource: TableViewDataSource
+    public let tableDataSource: TableViewDataSource
     
     // MARK: Init
     
-    public init(dataSource: TableViewDataSource) {
-        self.dataSource = dataSource
+    public init(tableDataSource: TableViewDataSource) {
+        self.tableDataSource = tableDataSource
         super.init(nibName: .none, bundle: .none)
     }
     
@@ -42,8 +42,8 @@ open class FormTableViewController: UIViewController, UITableViewDelegate {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.dataSource = self.dataSource
+        self.tableView.dataSource = self.tableDataSource
         self.tableView.delegate = self
-        self.dataSource.registerCells(with: self.tableView)
+        self.tableDataSource.registerCells(with: self.tableView)
     }
 }
