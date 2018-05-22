@@ -11,7 +11,7 @@ import UIKit
 
 open class TableViewDataSource: NSObject {
     
-    weak var viewController: UIViewController?
+    open weak var viewController: UIViewController?
     
     open var sections: [TableViewSection]
     open weak var tableView: UITableView?
