@@ -11,7 +11,7 @@ import UIKit
 
 public protocol TableViewRow {
     
-    associatedtype Cell
+    associatedtype Cell: UITableViewCell
     
     var indexPath: IndexPath { get }
     
@@ -23,6 +23,10 @@ public protocol TableViewRow {
 }
 
 extension TableViewRow {
+    
+    public var cellReuseIdentifier: String {
+        return Cell.reuseIdentifier
+    }
     
     public func registerCell(with tableView: UITableView) {
         tableView.register(Cell.self as? AnyClass, forCellReuseIdentifier: self.cellReuseIdentifier)
