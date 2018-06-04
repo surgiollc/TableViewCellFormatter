@@ -13,13 +13,15 @@ open class CollectionViewDataSource: NSObject {
     
     open var sections: [CollectionViewSection]
     
+    public var collectionView: UICollectionView?
+    
     public init(sections: [CollectionViewSection]) {
         self.sections = sections
         super.init()
     }
     
     open func registerCells(with collectionView: UICollectionView) {
-        // Default impl
+        self.collectionView = collectionView
     }
 }
 // MARK: - UICollectionViewDataSource
