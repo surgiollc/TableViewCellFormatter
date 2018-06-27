@@ -29,7 +29,7 @@ extension TableViewRow {
     }
     
     public func registerCell(with tableView: UITableView) {
-        tableView.register(Cell.self as? AnyClass, forCellReuseIdentifier: self.cellReuseIdentifier)
+        tableView.register(Cell.self as AnyClass, forCellReuseIdentifier: self.cellReuseIdentifier)
     }
 }
 
