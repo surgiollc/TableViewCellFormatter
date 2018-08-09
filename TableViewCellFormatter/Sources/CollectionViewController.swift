@@ -48,4 +48,15 @@ open class CollectionViewController: UICollectionViewController {
         return self._dataSource.collectionView(collectionView, cellForItemAt: indexPath)
     }
     
+    // MARK: - UICollectionViewDelegate
+    
+    open override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let section: CollectionViewSection = self._dataSource.sections[indexPath.section]
+        section.willDisplay(cell: cell, at: indexPath)
+    }
+    
+    open override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let section: CollectionViewSection = self._dataSource.sections[indexPath.section]
+        section.didEndDisplaying(cell: cell, at: indexPath)
+    }
 }
