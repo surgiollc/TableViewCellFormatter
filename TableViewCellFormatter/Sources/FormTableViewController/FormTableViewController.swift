@@ -15,7 +15,7 @@ open class FormTableViewController: UIViewController, UITableViewDelegate {
     public private(set) lazy var tableView: UITableView = {
         let result: UITableView = UITableView()
         result.estimatedRowHeight = 50
-        result.rowHeight = UITableViewAutomaticDimension
+        result.rowHeight = UITableView.automaticDimension
         result.separatorStyle = .none
         return result
     }()
