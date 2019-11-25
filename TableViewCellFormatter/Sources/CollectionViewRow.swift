@@ -80,7 +80,7 @@ public struct AnyCollectionViewRow<CellType: UICollectionViewCell>: CollectionVi
             return self._indexPath
         }
         set {
-            self.indexPath = newValue
+            self._indexPath = newValue
         }
     }
     
